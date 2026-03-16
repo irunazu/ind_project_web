@@ -4,59 +4,121 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Изучаем Python</title>
-    
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            background-color: #fafafa;
+            color: #333;
+            
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            background-color: #fff;
+            padding: 2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+        }
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+            
+            margin-right: 1rem
+        }
+        nav li a {
+            color: #333;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-right: 1rem
+        }
+        section {
+            padding: 4rem 0;
+        }
+        h1, h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        ul {
+            list-style-position: inside;
+            padding-left: 0;
+        }
+        a {
+            color: #ff7b25;
+            text-decoration: none;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-<!-- header start -->
     <header class="text-gray-600 body-font">
-  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-    <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-      <img src="./images/снеговик.jpg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white bg-indigo-500 rounded-full" viewBox="0 0 24 24">
-        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-      </img>
-      <span class="ml-3 text-xl">
-        <font dir="auto" style="vertical-align: inherit;">
-          <font dir="auto" style="vertical-align: inherit;">irunazu</font>
-        </font>
-      </span>
-    </a>
-    <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
-      <a class="mr-5 hover:text-gray-900">
-        <font dir="auto" style="vertical-align: inherit;">
-          <a href='./index.html' font dir="auto" style="vertical-align: inherit;">Содержание</a>
-        </font>
-      </a>
-      
-    </nav>
-  </div>
-  
-</header>
-<!-- header end -->
- <!-- main txt start-->
-  <section class="text-gray-600 body-font overflow-hidden">
-  <div class="container px-5 py-24 mx-auto">
-      <div class="p-12 flex flex-col items-start">
-        <center>
-        <h2 class="sm:text-3xl text-2xl title-font font-medium text-gray-900 mt-4 mb-4">Если вы перешли на этот сайт, значит язык Python - язык который вы выбрали для обучения</h2>
-        <p class="leading-relaxed mb-8">Изучение Python дает возможность понимать логику компьютер, что в свою очередь поможет в изучении уже других языков, но как бы я не хотел, только с помощью моего сайта обучится не получится и придется переходить на другие ресурсы. Я мог бы посоветовать официальный сайт Python - python.org, на котором можно найти всю документацию по библиотекам и самому синтаксису языка. На счет домашнего задания можно спросить у ИИ (главное указать свой уровень и что ты изучил).</p>
-        <ul>
-          <li>
-            <a class="sm:text-3xl text-2xl title-font font-medium text-gray-900 mt-4 mb-4" href="https://rutube.ru/plst/35943?r=wd">Плейлист изучение Python на Rutube</a>
-            <li>
-            <a class="sm:text-3xl text-2xl title-font font-medium text-gray-900 mt-4 mb-4" href="https://python.org">Официальный сайт Python</a>
-        </ul>
-        <div class="flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto">
-          
-          
-          
+        <div class="container">
+            <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                <img src="./images/снеговик.jpg" class="w-10 h-10 text-white bg-indigo-500 rounded-full" />
+                <span class="ml-3 text-xl">irunazu</span>
+            </a>
+            <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex flex-wrap items-center text-base justify-center">
+                <ul>
+                    <li><a href='./index.html'>Содержание</a></li>
+                </ul>
+            </nav>
         </div>
-        
-      </div>
-    </div>
-  </div>
-</section>
- <!-- main txt end-->
+    </header>
+    
+    <section class="text-gray-600 body-font overflow-hidden">
+        <div class="container">
+            <div class="p-12 flex flex-col items-start">
+                <h2 class="sm:text-3xl text-2xl title-font font-medium text-gray-900 mt-4 mb-4">Если вы перешли на этот сайт, значит язык Python - язык который вы выбрали для обучения</h2>
+                <p class="leading-relaxed mb-8">Python является универсальным языком программирования, идеально подходящим как для начинающих, так и опытных разработчиков. Его простота и выразительность делают процесс обучения быстрым и увлекательным. Вы сможете создавать веб-приложения, автоматизировать рутинные задачи, анализировать большие объемы данных и многое другое.</p>
+                
+                <p class="leading-relaxed mb-8">Изучение Python даст вам фундаментальные знания, необходимые для дальнейшего освоения других языков программирования. Но помните, успех зависит не только от теории, но и от постоянной практики. Регулярное выполнение заданий и проектов позволит закрепить полученные знания и развить практические навыки.</p>
+                
+                <p class="leading-relaxed mb-8">Хотя мой сайт служит лишь началом пути, рекомендую воспользоваться дополнительными ресурсами:</p>
+                
+                <ul>
+                    <li>
+                        <!-- HTML-код с улучшенной кнопкой -->
+                        <a href="./web.html" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                            Плейлист изучение Python на Rutube
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./web.html" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                            Python
+                        </a>
+                    </li>
+                </ul>
+                
+                <p class="leading-relaxed mb-8">Кроме того, настоятельно советую обращаться к документации официального сайта Python. Там вы найдете исчерпывающие руководства и справочные материалы по различным модулям и библиотекам. Практическое задание можете получать у ИИ, указывая свой уровень подготовки и пройденный материал.</p>
+            </div>
+        </div>
+    </section>
 </body>
-
 </html>
