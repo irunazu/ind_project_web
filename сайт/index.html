@@ -5,234 +5,252 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>irunazu | Программирование</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            background-color: #fafafa;
+            color: #333;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            background-color: #fff;
+            padding: 2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+        }
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        nav li a {
+            color: #333;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        nav li a:hover {
+            color: #ff7b25;
+        }
+        section {
+            padding: 4rem 0;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+        .feature-block {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .feature-item {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+        }
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .step-card {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+        }
+        .missing-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .missing-item {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        footer a {
+            color: #ff7b25;
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-  <!-- header start -->
-    <header class="text-gray-600 body-font">
-  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-    <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-      <img src="./images/снеговик.jpg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white bg-indigo-500 rounded-full" viewBox="0 0 24 24">
-        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-      </img>
-      <span class="ml-3 text-xl">
-        <font dir="auto" style="vertical-align: inherit;">
-          <font dir="auto" style="vertical-align: inherit;">irunazu</font>
-        </font>
-      </span>
-    </a>
-    <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
-      <a class="mr-5 hover:text-gray-900">
-        <font dir="auto" style="vertical-align: inherit;">
-          <font dir="auto" style="vertical-align: inherit;">Содержание</font>
-        </font>
-      </a>
-      
-    </nav>
-  </div>
-  
+    <header class="text-gray-600 body-font fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center justify-between">
+        <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                <img src="./images/снеговик.jpg" class="w-10 h-10 text-white bg-indigo-500 rounded-full" />
+                <span class="ml-3 text-xl">irunazu</span>
+            </a>
+        <button type="button" id="menu-toggle" class="block lg:hidden focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+        <nav class="hidden lg:flex md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex flex-wrap items-center text-base justify-center">
+            <a href="#" class="mr-5 hover:text-gray-900">Главная</a>
+            <a href="#FAQ" class="mr-5 hover:text-gray-900">FAQ</a>
+            <a href="#contacts" class="mr-5 hover:text-gray-900">Обратная связь</a>
+        </nav>
+    </div>
 </header>
-<!-- header end -->
- <!-- feature start -->
- <section class="text-gray-600 body-font">
-  <div class="container px-5 py-24 mx-auto">
-    <h1 class="sm:text-3xl text-2xl font-medium title-font text-center text-gray-900 mb-20">Зачем нужно изучать языки программирования?
-    </h1>
-    <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
-      <div class="p-4 md:w-1/2 flex">
-        <div class="w-12 h-12 inline-flex items-center justify-center rounded-full text-indigo-500 mb-4 flex-shrink-0">
-          <img src="./images/success_1681380.png" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10" viewBox="0 0 24 24">
-            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-        </img>
+<script>
+document.getElementById('menu-toggle').addEventListener('click', function() {
+    document.querySelector('nav').classList.toggle('hidden');
+});
+</script>
+    
+<section class="text-gray-600 body-font" id="FAQ">
+        <div class="container px-5 py-24 mx-auto">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font text-center text-gray-900 mb-20">Часто задаваемые вопросы (FAQ)</h1>
+            <ul class="list-disc pl-10 space-y-4 leading-relaxed text-base">
+                <li><strong>Вопрос:</strong> Зачем нужно изучать языки программирования?<br/>
+                   <strong>Ответ:</strong> Изучение языков программирования открывает новые возможности карьерного роста и помогает эффективно решать ежедневные задачи.</li>
+                <li><strong>Вопрос:</strong> Какие шаги нужно предпринять для изучения языка программирования?<br/>
+                   <strong>Ответ:</strong> Начните с анализа рынка труда, составления плана обучения, распределения времени и тестирования полученных знаний.</li>
+                <li><strong>Вопрос:</strong> Как избежать распространенных ошибок при изучении программирования?<br/>
+                   <strong>Ответ:</strong> Не пренебрегайте практикой и теорией, избегайте слепого копирования кода и обязательно задавайте вопросы, если возникают трудности.</li>
+            </ul>
         </div>
-        <div class="flex-grow pl-6">
-          <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Актуальность</h2>
-          <p class="leading-relaxed text-base">Несмотря на рост ИИ можно однозначно сказать: все кто разбираются в коде, то есть могут написать какой-либо скрипт, могут не беспокоиться на счет работы, ведь этот самый ИИ нужно кому-то поддерживать и обслуживать.</p>
-          
-        </div>
-      </div>
-      <div class="p-4 md:w-1/2 flex">
-        <div class="w-12 h-12 inline-flex items-center justify-center rounded-full text-indigo-500 mb-4 flex-shrink-0">
-          <img src='./images/money_10560650.png' fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10" viewBox="0 0 24 24">
-            <circle cx="6" cy="6" r="3"></circle>
-            <circle cx="6" cy="18" r="3"></circle>
-            <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
-        </img>
-        </div>
-        <div class="flex-grow pl-6">
-          <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Зарплата</h2>
-          <p class="leading-relaxed text-base">Как раз за счет роста ИИ появляется все больше запросов, вопросов и много нового, чему нужно обучить эти самые ИИ. А кому это делать кроме как программистам? Рост этой работы и придает рост к зарплате.</p>
-          
-        </div>
-      </div>
-      
-    </div>
-  </div>
-</section> 
- <!-- feature end -->
-  <!-- steps start -->
- <section class="text-gray-600 body-font">
-  <h1 class="sm:text-3xl text-2xl font-medium title-font text-center text-gray-900 mb-20">Шаги к изучению языка
-    </h1>
-  <div class="container px-5 py-24 mx-auto flex flex-wrap">
-    <div class="flex flex-wrap w-full">
-      <div class="lg:w-2/5 md:w-1/2 md:pr-10 md:py-6">
-        <div class="flex relative pb-12">
-          <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
-            <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
-          </div>
-          <div class="flex-shrink-0 w-10 h-10 rounded-full inline-flex items-center justify-center text-white relative z-10">
-            <img src="./images/programming_6405233.png" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10" viewBox="0 0 24 24">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-          </img>
-          </div>
-          
-          <div class="flex-grow pl-4">
-            <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">Шаг 1</h2>
-            <p class="leading-relaxed">Изучение рынка труда и выбор языка, на котором вы будете программировать (Чаще всего, и по совместительству лучше, будет Python).</p>
-          </div>
-        </div>
-        <div class="flex relative pb-12">
-          <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
-            <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
-          </div>
-          <div class="flex-shrink-0 w-10 h-10 rounded-full inline-flex items-center justify-center text-white relative z-10">
-            <img src="./images/coding-book_16987149.png" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10" viewBox="0 0 24 24">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-          </img>
-          </div>
-          <div class="flex-grow pl-4">
-            <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">Шаг 2</h2>
-            <p class="leading-relaxed">Составление плана обучения, поиск видео уроков (легче всего искать сразу плейлисты) с наличием "домашнего задания", то есть практики.</p>
-          </div>
-        </div>
-        <div class="flex relative pb-12">
-          <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
-            <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
-          </div>
-          <div class="flex-shrink-0 w-10 h-10 rounded-full inline-flex items-center justify-center text-white relative z-10">
-            <img src="./images/calendar_8419088.png" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10" viewBox="0 0 24 24">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-          </img>
-          </div>
-          <div class="flex-grow pl-4">
-            <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">Шаг 3</h2>
-            <p class="leading-relaxed">Распределение дней обучения и отдыха, так как важно не переусердствовать.</p>
-          </div>
-        </div>
-        <div class="flex relative pb-12">
-          <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
-            <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
-          </div>
-          <div class="flex-shrink-0 w-10 h-10 rounded-full inline-flex items-center justify-center text-white relative z-10">
-            <img src="./images/exam_9523875.png" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10" viewBox="0 0 24 24">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-          </img>
-          </div>
-          <div class="flex-grow pl-4">
-            <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">Шаг 4</h2>
-            <p class="leading-relaxed">Провести тестовый период обучения и откорректировать по нужде план.</p>
-          </div>
-        </div>
-        <div class="flex relative">
-          <div class="flex-shrink-0 w-10 h-10 rounded-full inline-flex items-center justify-center text-white relative z-10">
-            <img src="./images/education_2092356.png" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10" viewBox="0 0 24 24">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-          </img>
-          </div>
-          <div class="flex-grow pl-4">
-            <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">Финиш</h2>
-            <p class="leading-relaxed">После окончания курса обучения по языку программирования попробовать себя в задачах разного уровня и сделать выводы.</p>
-          </div>
-          
-        </div>
-      </div>
-      <img class="lg:w-3/5 md:w-1/2 object-cover object-center rounded-lg md:mt-0 mt-12" src="./images/i.webp" alt="step">
-    </div>
-  </div>
-</section>
-  <!-- steps end -->
-<!-- missing -->
-<section class="text-gray-600 body-font">
-  <div class="container px-5 py-24 mx-auto">
-    <div class="text-center mb-20">
-      <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">Главные ошибки при обучении программированию</h1>
-      <div class="flex mt-6 justify-center">
-        <div class="w-16 h-1 rounded-full bg-gray-500 inline-flex"></div>
-      </div>
-    </div>
-    <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
-      <div class="p-4 md:w-1/4 flex flex-col text-center items-center">
-        <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5 flex-shrink-0">
-          <img src="./images/moral_2464127.png" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-15 h-15" viewBox="0 0 24 24">
-            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-          </img>
-        </div>
-        <div class="flex-grow">
-          <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Пренебрежение практикой и теорией</h2>
-          <p class="leading-relaxed text-base">Как и во всех профессиях, умениях и в целом при обучении программированию требуется баланс между теорией и практикой. Это обеспечит эффективность обучения и качество знаний.</p>
-        </div>
-      </div>
-      <div class="p-4 md:w-1/4 flex flex-col text-center items-center">
-        <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5 flex-shrink-0">
-          <img src="./images/paste_3645840.png" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-15 h-15" viewBox="0 0 24 24">
-            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-          </img>
-        </div>
-        <div class="flex-grow">
-          <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Ctrl+A, Ctrl+C, Ctrl+V</h2>
-          <p class="leading-relaxed text-base">Полное или частичное копирование кода из видеороликов, без его понимания, приведет к чрезмерной уверенности в своих силах и возможности сделать такое самому, но чаще всего такие люди просто не смогут написать этот код, ведь не понимают его</p>
-        </div>
-      </div>
-      <div class="p-4 md:w-1/4 flex flex-col text-center items-center">
-        <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5 flex-shrink-0">
-          <img src="./images/question_11105872.png" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-15 h-15" viewBox="0 0 24 24">
-            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-          </img>
-        </div>
-        <div class="flex-grow">
-          <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Излишняя скромность</h2>
-          <p class="leading-relaxed text-base">Не задавать вопросы, боясь показаться глупым, делает обучение затруднительным (если не невозможным), как для обучающего, так и для обучаемого.</p>
-        </div>
-      </div>
-      <div class="p-4 md:w-1/4 flex flex-col text-center items-center">
-        <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5 flex-shrink-0">
-          <img src="./images/student_16155537.png" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-15 h-15" viewBox="0 0 24 24">
-            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-          </img>
-        </div>
-        <div class="flex-grow">
-          <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Игнорирование ошибок</h2>
-          <p class="leading-relaxed text-base">Замечаю сам, что при ошибке в коде новички часто гуглят ошибку, вставляют исправленный код и пишут дальше. В таком подходе нет ничего страшного, но потом они потом совершают те же ошибки, а ИИ уже не в силах исправить их. Для этого нужно не только исправлять ошибки, а еще и учиться на них (как бы банально не звучало).</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <center>
-    <a href="./web.html" class="text-gray-900 text-lg title-font font-medium mb-3">Перейти к изучению Python</a>
-    </center>
-</section>
-<!-- missing end -->
+    </section>
 
-<!-- footer start -->
- <footer class="text-gray-600 body-font">
-  <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
-    <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-      <img src="./images/снеговик.jpg" fill="none" stroke="currentColor" stroke-width="2" class="w-15 h-15 text-white p-2 rounded-full" viewBox="0 0 24 24">
-      </svg>
-      <span class="ml-3 text-xl">irunazu</span>
-    </a>
-    <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2026 irunazu —
-      <a href="https://t.me/irunazu1" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">@irunazu1</a>
-    </p>
-    <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-      <a class="text-gray-500">
-        <img src="./images/telegram_4423446.png" fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-          <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-      </img>
-      </a>
-    </span>
-  </div>
-</footer>
-<!-- footer end -->
+
+    <section class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto">
+        <h1 class="sm:text-3xl text-2xl font-medium title-font text-center text-gray-900 mb-20">Зачем нужно изучать языки программирования?</h1>
+        <p class="leading-relaxed text-base">
+    Современные технологии развиваются стремительно, и умение программировать становится одним из ключевых навыков XXI века. Независимо от профессии, знание хотя бы основ программирования открывает двери к новым возможностям карьерного роста и позволяет решать повседневные задачи быстрее и эффективнее. Кроме того, многие вакансии требуют базовых навыков программирования даже для должностей, традиционно не связанных с разработкой программного обеспечения.
+</p>
+        <div class="flex flex-wrap">
+            <div class="w-full md:w-1/2 p-4">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <img src="./images/success_1681380.png" class="w-10 h-10 mb-4"/>
+                    <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Актуальность</h2>
+                    <p class="leading-relaxed text-base">Несмотря на рост ИИ можно однозначно сказать: все кто разбираются в коде, то есть могут написать какой-либо скрипт, могут не беспокоиться на счет работы...</p>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 p-4">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <img src="./images/money_10560650.png" class="w-10 h-10 mb-4"/>
+                    <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Зарплата</h2>
+                    <p class="leading-relaxed text-base">Как раз за счет роста ИИ появляется все больше запросов, вопросов и много нового, чему нужно обучить эти самые ИИ...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+    <section class="text-gray-600 body-font">
+        <div class="container">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font text-center text-gray-900 mb-20">Шаги к изучению языка</h1>
+            <div class="steps-container">
+                <div class="step-card">
+                    <img src="./images/programming_6405233.png" class="w-10 h-10 mb-4"/>
+                    <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Шаг 1</h2>
+                    <p class="leading-relaxed text-base">Изучение рынка труда и выбор языка, на котором вы будете программировать...</p>
+                </div>
+                <div class="step-card">
+                    <img src="./images/coding-book_16987149.png" class="w-10 h-10 mb-4"/>
+                    <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Шаг 2</h2>
+                    <p class="leading-relaxed text-base">Составление плана обучения, поиск видео уроков с наличием "домашнего задания"...</p>
+                </div>
+                <div class="step-card">
+                    <img src="./images/calendar_8419088.png" class="w-10 h-10 mb-4"/>
+                    <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Шаг 3</h2>
+                    <p class="leading-relaxed text-base">Распределение дней обучения и отдыха, так как важно не переусердствовать.</p>
+                </div>
+                <div class="step-card">
+                    <img src="./images/exam_9523875.png" class="w-10 h-10 mb-4"/>
+                    <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Шаг 4</h2>
+                    <p class="leading-relaxed text-base">Провести тестовый период обучения и откорректировать по нужде план.</p>
+                </div>
+                <div class="step-card">
+                    <img src="./images/education_2092356.png" class="w-10 h-10 mb-4"/>
+                    <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Финиш</h2>
+                    <p class="leading-relaxed text-base">После окончания курса обучения попробовать себя в задачах разного уровня и сделать выводы.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="text-gray-600 body-font">
+        <div class="container">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font text-center text-gray-900 mb-20">Главные ошибки при обучении программированию</h1>
+            <div class="missing-section">
+                <div class="missing-item">
+                    <img src="./images/moral_2464127.png" class="w-10 h-10 mb-4"/>
+                    <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Пренебрежение практикой и теорией</h2>
+                    <p class="leading-relaxed text-base">Как и во всех профессиях, умениях и в целом при обучении программированию требуется баланс между теорией и практикой...</p>
+                </div>
+                <div class="missing-item">
+                    <img src="./images/paste_3645840.png" class="w-10 h-10 mb-4"/>
+                    <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Ctrl+A, Ctrl+C, Ctrl+V</h2>
+                    <p class="leading-relaxed text-base">Полное или частичное копирование кода из видеороликов, без его понимания, приведет к чрезмерной уверенности в своих силах...</p>
+                </div>
+                <div class="missing-item">
+                    <img src="./images/question_11105872.png" class="w-10 h-10 mb-4"/>
+                    <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Излишняя скромность</h2>
+                    <p class="leading-relaxed text-base">Не задавать вопросы, боясь показаться глупым, делает обучение затруднительным...</p>
+                </div>
+                <div class="missing-item">
+                    <img src="./images/student_16155537.png" class="w-10 h-10 mb-4"/>
+                    <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Игнорирование ошибок</h2>
+                    <p class="leading-relaxed text-base">Замечаю сам, что при ошибке в коде новички часто гуглят ошибку, вставляют исправленный код и пишут дальше...</p>
+                </div>
+            </div>
+            <center>
+                <a href="./web.html" class="text-gray-900 text-lg title-font font-medium mb-3">Перейти к изучению Python</a>
+            </center>
+        </div>
+    </section>
+    
+<section class="text-gray-600 body-font" id="contacts">
+        <div class="container px-5 py-24 mx-auto">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font text-center text-gray-900 mb-20">Обратная связь</h1>
+            <p class="leading-relaxed text-base text-center">
+                Если у вас возникли вопросы или пожелания, пожалуйста, свяжитесь с нами:<br/>
+                Телефон: +7 (927) 045-8305<br/>
+                Email: irunazuuchiha@gmail.com
+            </p>
+        </div>
+    </section>
+
+    <footer class="text-gray-600 body-font">
+        <div class="container">
+            <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+                <img src="./images/снеговик.jpg" class="w-10 h-10 text-white bg-indigo-500 rounded-full" />
+                <span class="ml-3 text-xl"><a href="https://t.me/irunazu1">irunazu</a></span>
+            </a>
+            <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2026 irunazu — @irunazu1</p>
+            </span>
+        </div>
+    </footer>
 </body>
 </html>
