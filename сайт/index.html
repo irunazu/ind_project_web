@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>irunazu | Программирование</title>
+    <title>irunazu | Самостоятельное изучение языков программирования</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             background: linear-gradient(145deg, #f6f9fc 0%, #eef2f5 100%);
-            color: #333;
+            color: #1a2c3e;
             scroll-behavior: smooth;
         }
         img {
@@ -32,12 +32,13 @@
 
         /* Навбар */
         header {
-            background: #fff;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(12px);
             padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(0,180,150,0.2);
         }
         .nav-flex {
             display: flex;
@@ -47,20 +48,27 @@
         .logo {
             font-weight: 700;
             font-size: 1.6rem;
-            color: #2b7a62;
+            background: linear-gradient(135deg, #2b7a62, #00b4a2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
         .nav-links a {
             text-decoration: none;
             margin-left: 28px;
             font-weight: 500;
             color: #2c4b5c;
-            transition: color .2s;
+            transition: color 0.2s;
         }
         .nav-links a:hover {
             color: #00a890;
         }
 
         /* Hero */
+        .hero {
+            text-align: center;
+            padding: 60px 0 20px;
+        }
         .hero h1 {
             font-size: 3rem;
             font-weight: 800;
@@ -68,16 +76,24 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            margin-bottom: 1rem;
+        }
+        .hero-sub {
+            font-size: 1.2rem;
+            color: #3a5a6e;
+            max-width: 720px;
+            margin: 0 auto;
         }
 
         /* Секции */
         section {
             padding: 4rem 0;
         }
-        h1 {
-            font-size: 2.5rem;
+        h1.section-title {
+            font-size: 2.2rem;
             margin-bottom: 2rem;
             text-align: center;
+            color: #153e4f;
         }
 
         /* Карточки */
@@ -90,58 +106,57 @@
         .feature-item, .step-card, .missing-item {
             background: #fff;
             padding: 2rem;
-            border-radius: 24px;
+            border-radius: 28px;
             box-shadow: 0 12px 30px rgba(0,0,0,0.04);
+            border: 1px solid #e2edf2;
+            transition: transform 0.2s;
+        }
+        .feature-item:hover, .step-card:hover, .missing-item:hover {
+            transform: translateY(-4px);
         }
 
         /* Блоки с картинками */
         .img-placeholder {
-          background: #eef3f1;
-          border-radius: 24px;
-          display: flex;
-          gap: 24px;
-          flex-wrap: wrap;
-          padding: 20px;
-          margin-top: 30px;
-          border: 1px dashed #bdd3cb;
-          justify-content: center;
+            background: #eef3f1;
+            border-radius: 24px;
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            padding: 20px;
+            margin-top: 30px;
+            border: 1px dashed #bdd3cb;
+            justify-content: center;
         }
 
         .mock-img {
-          background: #fff;
-          border-radius: 24px;
-          padding: 20px;
-          box-shadow: 0 6px 18px rgba(0,0,0,0.04);
-          text-align: center;
-          max-width: 360px;
-          flex-basis: calc(50% - 24px);
-          min-width: 300px;
+            background: #fff;
+            border-radius: 24px;
+            padding: 20px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+            text-align: center;
+            max-width: 360px;
+            flex-basis: calc(50% - 24px);
+            min-width: 280px;
         }
 
         .mock-img img {
-          max-width: 100%;
-          height: auto;
-          max-height: 180px;
-          object-fit: cover;
-          border-radius: 12px;
-          margin-bottom: 12px;
+            max-width: 100%;
+            height: auto;
+            max-height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 12px;
         }
 
-        /* Footer */
-        footer {
-          background-color: #333;
-          color: #fff;
-          padding: 2rem 0;
-          text-align: center;
-          margin-top: auto;
+        .error-solution {
+            font-size: 0.9rem;
+            color: #2b7a62;
+            margin-top: 8px;
+            border-top: 1px dashed #cde8e2;
+            padding-top: 8px;
         }
 
-        footer a {
-          color: #ff7b25 !important;
-          text-decoration: underline !important;
-        }
-        
-        /* Стиль для кнопки */
+        /* Кнопка */
         .btn {
             display: inline-block;
             background: linear-gradient(135deg, #2b7a62, #00b4a2);
@@ -159,136 +174,153 @@
             box-shadow: 0 6px 16px rgba(0,180,162,0.4);
         }
 
+        footer {
+            background-color: #1e2f38;
+            color: #cbdbe2;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        footer a {
+            color: #00b4a2;
+            text-decoration: none;
+        }
+
         @media (max-width: 768px) {
-          .nav-links a { margin-left: 16px; font-size: .9rem; }
-          h1 { font-size: 2rem; }
-          .mock-img { flex-basis: 100%; max-width: none; }
+            .nav-links a { margin-left: 16px; font-size: 0.9rem; }
+            .hero h1 { font-size: 2rem; }
+            .mock-img { flex-basis: 100%; max-width: none; }
         }
     </style>
 </head>
 <body>
 
-    <header class="container">
-      <div class="nav-flex">
+<header class="container">
+    <div class="nav-flex">
         <div class="logo">ИРУНАЗУ</div>
-         <div class="nav-links">
-           <a href="#FAQ">FAQ</a>
-           <a href="#contacts">Обратная связь</a>
-         </div>
-      </div>
-    </header>
+        <div class="nav-links">
+            <a href="#why">Актуальность</a>
+            <a href="#steps">План</a>
+            <a href="#mistakes">Ошибки</a>
+            <a href="#contacts">Контакты</a>
+        </div>
+    </div>
+</header>
 
-    <section class="hero container">
-      <h1>Самостоятельное изучение<br>языков программирования</h1>
-      <p style="text-align:center;">Структурированный путь к освоению языков программирования с нуля до первых проектов. Мы поможем вам сделать первые шаги в IT и обрести востребованную профессию.</p>
-    </section>
+<section class="hero container">
+    <h1>Самостоятельное изучение языков программирования</h1>
+    <div class="hero-sub">стратегии, ресурсы, ошибки</div>
+    <p style="margin-top: 24px; max-width: 800px; margin-left: auto; margin-right: auto;">Структурированный путь к освоению языков программирования с нуля до первых проектов. Мы поможем вам сделать первые шаги в IT и обрести востребованную профессию.</p>
+</section>
 
-    <section id="FAQ" class="container">
-      <h1>Часто задаваемые вопросы (FAQ)</h1>
-      <ul class="feature-block">
-         <li class="feature-item">
-           <strong>Вопрос:</strong> Зачем нужно изучать языки программирования?<br/>
-           <strong>Ответ:</strong> Изучение языков программирования открывает новые возможности карьерного роста и помогает эффективно решать ежедневные задачи.
-         </li>
-         <li class="feature-item">
-           <strong>Вопрос:</strong> Какие шаги нужно предпринять для изучения языка программирования?<br/>
-           <strong>Ответ:</strong> Начните с анализа рынка труда, составления плана обучения, распределения времени и тестирования полученных знаний.
-         </li>
-         <li class="feature-item">
-           <strong>Вопрос:</strong> Как избежать распространенных ошибок при обучении программированию?<br/>
-           <strong>Ответ:</strong> Не пренебрегайте практикой и теорией, избегайте слепого копирования кода и обязательно задавайте вопросы, если возникают трудности.
-         </li>
-      </ul>
-    </section>
+<section id="why" class="container">
+    <h1 class="section-title">Почему это актуально?</h1>
+    <div class="feature-block">
+        <div class="feature-item">
+            <strong>📈 Рост спроса на IT‑специалистов</strong>
+            <p>Рынок труда нуждается в разработчиках, а самостоятельное обучение становится главным входным билетом в профессию.</p>
+        </div>
+        <div class="feature-item">
+            <strong>🎯 Популярность самообразования</strong>
+            <p>Онлайн‑курсы, открытые лекции и сообщества позволяют учиться в удобном темпе без привязки к вузу.</p>
+        </div>
+        <div class="feature-item">
+            <strong>⚠️ Основные трудности новичков</strong>
+            <p>Отсутствие структуры, информационный шум и типичные ошибки – главные барьеры. Наш сайт решает эти проблемы.</p>
+        </div>
+    </div>
+    <div class="img-placeholder">
+        <div class="mock-img">
+            <img src="./images/success_1681380.png" alt="Актуальность">
+            <p><strong>Актуальность</strong><br>Умение программировать — фундаментальный навык XXI века. Даже базовые знания кода открывают двери к новым карьерным возможностям.</p>
+        </div>
+        <div class="mock-img">
+            <img src="./images/money_10560650.png" alt="Зарплата">
+            <p><strong>Спрос → доход</strong><br>Спрос на IT-специалистов стабильно высок, что напрямую влияет на уровень зарплат и возможности удалённой работы.</p>
+        </div>
+    </div>
+</section>
 
-    <section id="why" class="container">
-      <h1>Зачем нужно изучать языки программирования?</h1>
-      <p>Современные технологии развиваются стремительно, и умение программировать становится одним из ключевых навыков XXI века. Независимо от профессии, знание хотя бы основ программирования открывает двери к новым возможностям карьерного роста и позволяет решать повседневные задачи быстрее и эффективнее.</p>
-      <div class="img-placeholder">
-         <div class="mock-img">
-           <img src="./images/success_1681380.png" alt="Актуальность">
-           <p>Актуальность<br>
-        Умение программировать — это фундаментальный навык XXI века. Даже базовые знания кода открывают двери к новым карьерным возможностям и позволяют автоматизировать рутину. В эпоху стремительного развития искусственного интеллекта специалисты, понимающие логику работы программ, становятся ещё более востребованными на рынке труда.</p>
-         </div>
-         <div class="mock-img">
-           <img src="./images/money_10560650.png" alt="Зарплата">
-           <p>Зарплата<br>Спрос на IT-специалистов стабильно высок, что напрямую влияет на уровень дохода. Компании готовы платить конкурентную зарплату тем, кто умеет создавать и поддерживать цифровые продукты. Кроме того, навыки программирования позволяют запускать собственные проекты и стартапы, создавая дополнительные источники дохода.</p>
-         </div>
-      </div>
-    </section>
+<section id="steps" class="container">
+    <h1 class="section-title">🗺️ Как выстроить обучение?</h1>
+    <div class="steps-container">
+        <div class="step-card">
+            <img src="./images/programming_6405233.png" alt="Шаг 1">
+            <h2>Шаг 1. Выбор языка</h2>
+            <p>Изучите рынок: Python (data science, web), JavaScript (frontend/backend), Java (enterprise, Android). Наш сайт предлагает готовые траектории для каждого.</p>
+        </div>
+        <div class="step-card">
+            <img src="./images/coding-book_16987149.png" alt="Шаг 2">
+            <h2>Шаг 2. План и ресурсы</h2>
+            <p>Составьте roadmap на 3–4 месяца. Используйте проверенные курсы, книги и интерактивные платформы (каталог ресурсов – у нас на сайте).</p>
+        </div>
+        <div class="step-card">
+            <img src="./images/calendar_8419088.png" alt="Шаг 3">
+            <h2>Шаг 3. Режим и дисциплина</h2>
+            <p>Лучше 30–60 минут ежедневно, чем 8 часов раз в неделю. Регулярность важнее интенсивности.</p>
+        </div>
+        <div class="step-card">
+            <img src="./images/exam_9523875.png" alt="Шаг 4">
+            <h2>Шаг 4. Проекты и портфолио</h2>
+            <p>После основ сделайте 2–3 pet-проекта (калькулятор, парсер, телеграм‑бот) и выложите код на GitHub.</p>
+        </div>
+        <div class="step-card">
+            <img src="./images/education_2092356.png" alt="Финиш">
+            <h2>Финиш – непрерывное развитие</h2>
+            <p>Программирование требует постоянного изучения новых инструментов. После старта переходите к углублённым темам.</p>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 2rem;">
+        <a href="./web.html" class="btn">🚀 Смотреть дорожную карту Python →</a>
+        <p style="margin-top: 12px; font-size: 0.85rem; color: #5b7f8c;">На примере Python вы увидите универсальную стратегию, которая подойдёт для JS, Java и других языков</p>
+    </div>
+</section>
 
-    <section id="steps" class="container">
-      <h1>Шаги к изучению языка</h1>
-      <div class="steps-container">
-         <div class="step-card">
-           <img src="./images/programming_6405233.png" alt="Шаг 1">
-           <h2>Шаг 1</h2>
-           <p>Изучение рынка труда и выбор языка программирования. Определите востребованные направления и выберите язык под свои цели.</p>
-         </div>
-         <div class="step-card">
-           <img src="./images/coding-book_16987149.png" alt="Шаг 2">
-           <h2>Шаг 2</h2>
-           <p>Составление плана обучения и поиск качественных материалов. Используйте видеоуроки с практическими заданиями и интерактивные платформы.</p>
-         </div>
-         <div class="step-card">
-           <img src="./images/calendar_8419088.png" alt="Шаг 3">
-           <h2>Шаг 3</h2>
-           <p>Распределение дней обучения и отдыха. Важно соблюдать баланс, чтобы не перегореть и закрепить знания.</p>
-         </div>
-         <div class="step-card">
-           <img src="./images/exam_9523875.png" alt="Шаг 4">
-           <h2>Шаг 4</h2>
-           <p>Проведение тестового периода обучения. Проанализируйте прогресс и скорректируйте план при необходимости.</p>
-         </div>
-         <div class="step-card">
-           <img src="./images/education_2092356.png" alt="Финиш">
-           <h2>Финиш</h2>
-           <p>После окончания курса обучения попробуйте себя в задачах разного уровня сложности и сделайте выводы о своих силах.</p>
-         </div>
-      </div>
-    </section>
+<section id="mistakes" class="container">
+    <h1 class="section-title">⚠️ Типичные ошибки и их решения</h1>
+    <div class="missing-section">
+        <div class="missing-item">
+            <img src="./images/moral_2464127.png" alt="Пренебрежение практикой">
+            <h2>Пренебрежение практикой</h2>
+            <p>Только теория без кода быстро забывается.</p>
+            <div class="error-solution">✅ Решение: после каждой темы решайте 5–10 задач на Codewars или Stepik.</div>
+        </div>
+        <div class="missing-item">
+            <img src="./images/paste_3645840.png" alt="Ctrl+C Ctrl+V">
+            <h2>Слепое копирование кода</h2>
+            <p>Копирование без осознания не развивает навык.</p>
+            <div class="error-solution">✅ Решение: переписывайте код руками, добавляйте комментарии, меняйте логику.</div>
+        </div>
+        <div class="missing-item">
+            <img src="./images/question_11105872.png" alt="Излишняя скромность">
+            <h2>Страх задавать вопросы</h2>
+            <p>Многие новички молчат, когда что-то непонятно.</p>
+            <div class="error-solution">✅ Решение: задавайте вопросы на Stack Overflow, в Telegram‑чатах и на форумах.</div>
+        </div>
+        <div class="missing-item">
+            <img src="./images/student_16155537.png" alt="Игнорирование ошибок">
+            <h2>Не читают traceback</h2>
+            <p>Сообщения об ошибках пугают, но они дают ключ к решению.</p>
+            <div class="error-solution">✅ Решение: научитесь читать стек вызовов – это главный навык отладки.</div>
+        </div>
+    </div>
+</section>
 
-    <section id="mistakes" class="container">
-      <h1>Главные ошибки при обучении программированию</h1>
-      <div class="missing-section">
-         <div class="missing-item">
-           <img src="./images/moral_2464127.png" alt="Пренебрежение практикой">
-           <h2>Пренебрежение практикой и теорией</h2>
-           <p>Как и в любой профессии, в программировании важен баланс между теорией и практикой. Без закрепления знаний на практике теория быстро забывается.</p>
-         </div>
-         <div class="missing-item">
-           <img src="./images/paste_3645840.png" alt="Ctrl+C Ctrl+V">
-           <h2>Ctrl+A, Ctrl+C, Ctrl+V</h2>
-           <p>Полное или частичное копирование кода без его понимания приводит к ложной уверенности в своих силах и мешает развитию навыков решения задач.</p>
-         </div>
-         <div class="missing-item">
-           <img src="./images/question_11105872.png" alt="Излишняя скромность">
-           <h2>Излишняя скромность</h2>
-           <p>Не задавать вопросы из-за страха показаться глупым — одна из главных ошибок новичков. Задавайте вопросы на форумах и в сообществах.</p>
-         </div>
-         <div class="missing-item">
-           <img src="./images/student_16155537.png" alt="Игнорирование ошибок">
-           <h2>Игнорирование ошибок</h2>
-           <p>При возникновении ошибки новички часто просто копируют исправленный код из интернета. Важно научиться читать сообщения об ошибках (traceback) и понимать их причину.</p>
-         </div>
-      </div>
-      <center style="margin-top:30px;">
-        <a href="./web.html" class="btn">🎯 Смотреть пример: план изучения Python →</a>
-        <p style="margin-top: 12px; font-size: 0.85rem; color: #5b7f8c;">На примере Python вы увидите, как выстроить стратегию обучения для любого языка</p>
-      </center>
-    </section>
+<section id="contacts" class="container">
+    <h1 class="section-title">📬 Обратная связь</h1>
+    <div style="text-align: center; background: white; padding: 2rem; border-radius: 32px; max-width: 500px; margin: 0 auto;">
+        <p>Если у вас есть вопросы или предложения по улучшению сайта – пишите.</p>
+        <p style="margin-top: 1rem;"><i class="fas fa-envelope"></i> <strong>Email:</strong> irunazuuchiha@gmail.com</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #5b7f8c;">Проект студента группы ИС-252б Садыкова Ильназа Ураловича</p>
+    </div>
+</section>
 
-    <section id="contacts" class="container">
-      <h1>Обратная связь</h1>
-      <center style="margin-bottom:-2rem;"><a href="">Телефон: +7 (927) 045-8305</a></center><br><br>
-      <center style="margin-bottom:-2rem;"><a href="">Email: irunazuuchiha@gmail.com</a></center><br><br> 
-      <center style="margin-bottom:-2rem;"><a href="https://max.ru/u/f9LHodD0cOJEYwLW3cUJqsc-_xfDG9m4pSTYnUSqw8LEKC3B6yEmKHh25Dc">Max</a></center>
-    </section>
-
-    <footer class="container">
-      <hr style="border-color:#ff7b25; margin-bottom:.5rem; border-top:.5px solid; opacity:.7;">
-      © ИРУНАЗУ | Все права защищены.
-    </footer>
+<footer>
+    <div class="container">
+        <hr style="border-color: #2b7a62; max-width: 200px; margin: 0 auto 1rem;">
+        © ИРУНАЗУ | Все права защищены. Информационно‑образовательный сайт по самостоятельному изучению языков программирования.
+    </div>
+</footer>
 
 </body>
 </html>

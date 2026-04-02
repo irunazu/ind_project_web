@@ -3,289 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Python самообучение | Путь программиста</title>
-  <!-- Шрифты и иконки -->
+  <title>Python самообучение | Пример дорожной карты</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       background: linear-gradient(145deg, #f6f9fc 0%, #eef2f5 100%);
       font-family: 'Inter', sans-serif;
       color: #1a2c3e;
       line-height: 1.5;
       scroll-behavior: smooth;
-      overflow-x: hidden;
     }
-
-    /* контейнеры */
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* навбар */
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
     .navbar {
       background: rgba(255,255,255,0.85);
       backdrop-filter: blur(12px);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
       position: sticky;
       top: 0;
       z-index: 100;
       border-bottom: 1px solid rgba(0,180,150,0.2);
     }
-    .nav-flex {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 0;
-    }
-    .logo {
-      font-weight: 700;
-      font-size: 1.6rem;
-      background: linear-gradient(135deg, #2b7a62, #00b4a2);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      letter-spacing: -0.3px;
-    }
-    .nav-links a {
-      text-decoration: none;
-      margin-left: 28px;
-      font-weight: 500;
-      color: #2c4b5c;
-      transition: 0.2s;
-    }
-    .nav-links a:hover {
-      color: #00a890;
-    }
-
-    /* hero */
-    .hero {
-      padding: 60px 0 40px;
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: 3rem;
-      font-weight: 800;
-      background: linear-gradient(120deg, #1e5a4c, #009688);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      margin-bottom: 20px;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      color: #3a5a6e;
-      max-width: 720px;
-      margin: 0 auto;
-    }
-
-    /* карточки секций */
-    .section-card {
-      background: white;
-      border-radius: 32px;
-      padding: 32px 32px 40px;
-      margin-bottom: 48px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.04);
-      transition: all 0.2s;
-      border: 1px solid #e2edf2;
-    }
-    .section-title {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 28px;
-      border-left: 5px solid #00b4a2;
-      padding-left: 20px;
-    }
-    .section-title i {
-      font-size: 2rem;
-      color: #00a890;
-    }
-    .section-title h2 {
-      font-size: 1.9rem;
-      font-weight: 700;
-      color: #153e4f;
-    }
-
-    /* сетка для полочек */
-    .grid-2col {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 32px;
-    }
-    .info-card {
-      background: #fefefe;
-      border-radius: 28px;
-      padding: 20px;
-      box-shadow: 0 5px 12px rgba(0,0,0,0.02);
-      border: 1px solid #e9f0f3;
-      transition: 0.2s;
-    }
-    .info-card:hover {
-      transform: translateY(-4px);
-      border-color: #cde8e2;
-    }
-    .info-card h3 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 16px;
-      color: #1b6b5c;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .info-card ul, .info-card p {
-      margin: 12px 0;
-      color: #2a4b5c;
-    }
-    .info-card li {
-      margin-left: 20px;
-      margin-bottom: 10px;
-    }
-
-    /* план обучения timeline */
-    .timeline {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .timeline-item {
-      display: flex;
-      gap: 18px;
-      background: #fafefc;
-      border-radius: 24px;
-      padding: 18px 24px;
-      border-left: 5px solid #00b4a2;
-    }
-    .timeline-num {
-      font-weight: 800;
-      font-size: 1.8rem;
-      color: #cce7e2;
-      min-width: 55px;
-    }
-    .timeline-text strong {
-      font-size: 1.2rem;
-      color: #1f6d5c;
-    }
-
-    /* картинки-заглушки */
-    .img-placeholder {
-  background: #eef3f1;
-  border-radius: 24px;
-  display: flex;
-  gap: 24px;
-  flex-wrap: wrap;
-  padding: 20px;
-  margin-top: 30px;
-  border: 1px dashed #bdd3cb;
-}
-
-.mock-img {
-  background: #fff;
-  border-radius: 24px;
-  padding: 20px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
-  text-align: center;
-  max-width: 360px;
-}
-
-.mock-img img {
-  max-width: 100%;
-  height: auto;
-  max-height: 180px; /* ограничиваем высоту картинки */
-  object-fit: cover; /* чтобы изображение не искажалось */
-  border-radius: 12px;
-  margin-bottom: 12px;
-}
-
-.mock-img p {
-  font-size: 0.95rem;
-  color: #2a4b5c;
-}
-
-    /* частые ошибки */
-    .error-list {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-    .error-item {
-      background: #fff6ec;
-      border-radius: 20px;
-      padding: 16px 22px;
-      border-left: 4px solid #ffa05e;
-    }
-
-    /* рекомендации */
-    .recommend-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 28px;
-      margin: 30px 0 20px;
-    }
-    .rec-card {
-      background: #eef7f4;
-      border-radius: 28px;
-      padding: 24px 20px;
-      text-align: center;
-    }
-    .rec-card i {
-      font-size: 2.2rem;
-      color: #00a890;
-      margin-bottom: 12px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px 0 30px;
-      color: #5b7f8c;
-      border-top: 1px solid #dce9e5;
-      margin-top: 20px;
-    }
-    @media (max-width: 700px) {
-      .nav-links a { margin-left: 16px; font-size: 0.9rem; }
-      .hero h1 { font-size: 2.2rem; }
-      .section-title h2 { font-size: 1.5rem; }
-    }
+    .nav-flex { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; }
+    .logo a { font-weight: 700; font-size: 1.6rem; background: linear-gradient(135deg, #2b7a62, #00b4a2); -webkit-background-clip: text; background-clip: text; color: transparent; text-decoration: none; }
+    .nav-links a { text-decoration: none; margin-left: 28px; font-weight: 500; color: #2c4b5c; transition: 0.2s; }
+    .nav-links a:hover { color: #00a890; }
+    .hero { padding: 60px 0 40px; text-align: center; }
+    .hero h1 { font-size: 3rem; font-weight: 800; background: linear-gradient(120deg, #1e5a4c, #009688); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 20px; }
+    .section-card { background: white; border-radius: 32px; padding: 32px; margin-bottom: 48px; box-shadow: 0 12px 30px rgba(0,0,0,0.04); border: 1px solid #e2edf2; }
+    .section-title { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; border-left: 5px solid #00b4a2; padding-left: 20px; }
+    .section-title h2 { font-size: 1.9rem; font-weight: 700; color: #153e4f; }
+    .timeline { display: flex; flex-direction: column; gap: 20px; }
+    .timeline-item { display: flex; gap: 18px; background: #fafefc; border-radius: 24px; padding: 18px 24px; border-left: 5px solid #00b4a2; }
+    .timeline-num { font-weight: 800; font-size: 1.8rem; color: #cce7e2; min-width: 55px; }
+    .img-placeholder { background: #eef3f1; border-radius: 24px; display: flex; gap: 24px; flex-wrap: wrap; padding: 20px; margin-top: 30px; border: 1px dashed #bdd3cb; justify-content: center; }
+    .mock-img { background: #fff; border-radius: 24px; padding: 20px; box-shadow: 0 6px 18px rgba(0,0,0,0.04); text-align: center; max-width: 360px; }
+    .mock-img img { max-width: 100%; height: auto; max-height: 180px; object-fit: cover; border-radius: 12px; margin-bottom: 12px; }
+    .error-list { display: flex; flex-direction: column; gap: 18px; }
+    .error-item { background: #fff6ec; border-radius: 20px; padding: 16px 22px; border-left: 4px solid #ffa05e; }
+    .recommend-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; margin: 30px 0 20px; }
+    .rec-card { background: #eef7f4; border-radius: 28px; padding: 24px 20px; text-align: center; }
+    footer { text-align: center; padding: 40px 0 30px; color: #5b7f8c; border-top: 1px solid #dce9e5; margin-top: 20px; }
+    @media (max-width: 700px) { .hero h1 { font-size: 2rem; } .section-title h2 { font-size: 1.5rem; } }
   </style>
 </head>
 <body>
 
-<div class="explosion-overlay" id="explosionContainer"></div>
-
 <nav class="navbar">
   <div class="container nav-flex">
-    <div class="logo"><i class="fas fa-code"></i>ИРУНАЗУ</div>
+    <div class="logo"><a href="./index.html"><i class="fas fa-code"></i> ИРУНАЗУ</a></div>
     <div class="nav-links">
+      <a href="./index.html">Главная</a>
       <a href="#plan">План</a>
       <a href="#mistakes">Ошибки</a>
       <a href="#tips">Советы</a>
-      <a href="#recommend">Рекомендации</a>
+      <a href="#recommend">Ресурсы</a>
     </div>
   </div>
 </nav>
 
 <main class="container">
   <div class="hero">
-    <p style="font-size: 0.9rem; color: #5b7f8c; margin-top: -10px; margin-bottom: 20px;">⭐ На примере Python разбираем универсальную стратегию, которая подойдёт для любого языка</p>
+    <p style="font-size: 0.9rem; color: #5b7f8c;">🎯 Универсальная стратегия → на примере Python</p>
     <h1>Python: самообучение без страха</h1>
-    <p>Структура, мотивация и прозрачный путь от новичка до уверенного разработчика. Разберём по полочкам, чтобы каждый шаг был понятным.</p>
+    <p>Структура, мотивация и прозрачный путь от новичка до уверенного разработчика. Разберём по полочкам, чтобы каждый шаг был понятным. Аналогичные roadmap доступны для JS, Java и других языков.</p>
   </div>
 
-  <!-- План обучения + изображения -->
   <div class="section-card" id="plan">
-    <div class="section-title">
-      <i class="fas fa-layer-group"></i>
-      <h2>📌 План обучения: полочка за полочкой</h2>
-    </div>
+    <div class="section-title"><i class="fas fa-layer-group"></i><h2>📌 План обучения: полочка за полочкой</h2></div>
     <div class="timeline">
       <div class="timeline-item"><div class="timeline-num">01</div><div class="timeline-text"><strong>Основы синтаксиса</strong><br>Переменные, типы данных, условия, циклы, функции. Не пропускай базовые упражнения — это фундамент.</div></div>
       <div class="timeline-item"><div class="timeline-num">02</div><div class="timeline-text"><strong>Структуры данных</strong><br>Списки, словари, множества, кортежи. Решай задачи на LeetCode (easy) и пиши мини-игры.</div></div>
@@ -293,63 +78,32 @@
       <div class="timeline-item"><div class="timeline-num">04</div><div class="timeline-text"><strong>Работа с файлами, исключения, библиотеки</strong><br>JSON, requests, pandas (если data science) или Flask/Django (web).</div></div>
       <div class="timeline-item"><div class="timeline-num">05</div><div class="timeline-text"><strong>Pet-проект + Git</strong><br>Создай свой проект, выложи на GitHub. Это портфолио и точка роста.</div></div>
     </div>
-    <div class="img-placeholder" style="display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; margin-top: 30px;">
-  <div class="mock-img" style="flex: 1 1 320px; background:#fff; border-radius:24px; padding:20px; box-shadow:0 6px 18px rgba(0,0,0,0.04); text-align:center; max-width: 360px;">
-    <img src="./img/c6fb239620c42f4b2eb207a143351ef2.jpg" alt="Пример кода" style="max-width:100%; height:auto; border-radius:12px; margin-bottom:12px; object-fit: cover;">
-    <p style="font-size:0.95rem; color:#2a4b5c; white-space: normal; word-wrap: break-word; margin:0;">Пример кода</p>
-  </div>
-  <div class="mock-img" style="flex: 1 1 320px; background:#fff; border-radius:24px; padding:20px; box-shadow:0 6px 18px rgba(0,0,0,0.04); text-align:center; max-width: 360px;">
-    <img src="./img/1fd34817829c1c2f9bdfb02714b2ca66.jpg" alt="Roadmap" style="max-width:100%; height:auto; border-radius:12px; margin-bottom:12px; object-fit: cover;">
-    <p style="font-size:0.95rem; color:#2a4b5c; white-space: normal; word-wrap: break-word; margin:0;">Roadmap</p>
-  </div>
-  <div class="mock-img" style="flex: 1 1 320px; background:#fff; border-radius:24px; padding:20px; box-shadow:0 6px 18px rgba(0,0,0,0.04); text-align:center; max-width: 360px;">
-    <img src="./img/6bc5ca02bd8b0defff9f372dfac2ec07.jpg" alt="Интерактив" style="max-width:100%; height:auto; border-radius:12px; margin-bottom:12px; object-fit: cover;">
-    <p style="font-size:0.95rem; color:#2a4b5c; white-space: normal; word-wrap: break-word; margin:0;">Интерактив</p>
-  </div>
-</div>
+    <div class="img-placeholder">
+      <div class="mock-img"><img src="./img/c6fb239620c42f4b2eb207a143351ef2.jpg" alt="Пример кода"><p>Пример кода</p></div>
+      <div class="mock-img"><img src="./img/1fd34817829c1c2f9bdfb02714b2ca66.jpg" alt="Roadmap"><p>Roadmap</p></div>
+      <div class="mock-img"><img src="./img/6bc5ca02bd8b0defff9f372dfac2ec07.jpg" alt="Интерактив"><p>Интерактив</p></div>
+    </div>
   </div>
 
-  <!-- Частые ошибки -->
   <div class="section-card" id="mistakes">
     <div class="section-title"><i class="fas fa-exclamation-triangle"></i><h2>⚠️ Частые ошибки новичков (и как их избежать)</h2></div>
-    <div class="grid-2col">
-      <div class="error-list">
-        <div class="error-item"><strong>❌ Прыгать от темы к теме</strong><br>→ Придерживайся роадмапа, доводи до конца хотя бы один курс.</div>
-        <div class="error-item"><strong>❌ Копировать код без осознания</strong><br>→ Переписывай руками, добавляй комментарии, меняй логику.</div>
-        <div class="error-item"><strong>❌ Игнорировать Git и документацию</strong><br>→ Освой git add/commit/push с первой недели.</div>
-        <div class="error-item"><strong>❌ Слишком сложные проекты сразу</strong><br>→ Начни с парсера, телеграм-бота или калькулятора.</div>
-        <div class="error-item"><strong>❌ Не читать ошибки (traceback)</strong><br>→ Учись читать стек вызовов — главный навык.</div>
-      </div>
-      <div class="info-card" style="background:#f4faf8;"><h3><i class="fas fa-lightbulb"></i> Как исправлять</h3><p>✔ Используй print() и logging.<br>✔ Дебаггер в VS Code / PyCharm.<br>✔ Разбивай задачу на мелкие шаги.<br>✔ Проси код-ревью у сообщества.</p><div class="img-placeholder" style="display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; margin-top: 30px;">
-  <div class="mock-img" style="flex: 1 1 320px; background:#fff; border-radius:24px; padding:20px; box-shadow:0 6px 18px rgba(0,0,0,0.04); text-align:center; max-width: 360px;">
-    <img src="./img/GUu_neQ9AYgm92zjHvJ_TJSMmfBPiuDUlKJIWcf97JlM-hGZc7zlYP5a2sQxshdvcCy-BmiyAJ0XTz0G2wft-5lbLIw0etbdNnC54R4zP8vD3F23WQv3kgQ2i9nGZDcERPLKhv5iOqo0ipsScfLEKHR9ZF0upkAeXJqtzp5faycdAzzfY-IDgmJnZyaY.webp" alt="Отладка" style="max-width:100%; height:auto; border-radius:12px; margin-bottom:12px; object-fit: cover;">
-    <p style="font-size:0.95rem; color:#2a4b5c; white-space: normal; word-wrap: break-word; margin:0;">Отладка</p>
-  </div>
-  <div class="mock-img" style="flex: 1 1 320px; background:#fff; border-radius:24px; padding:20px; box-shadow:0 6px 18px rgba(0,0,0,0.04); text-align:center; max-width: 360px;">
-    <img src="./img/c3e62148557354e3d14891793aa095cb.jpg" alt="Комьюнити" style="max-width:100%; height:auto; border-radius:12px; margin-bottom:12px; object-fit: cover;">
-    <p style="font-size:0.95rem; color:#2a4b5c; white-space: normal; word-wrap: break-word; margin:0;">Комьюнити</p>
-  </div>
-</div>
-</div>
+    <div class="error-list">
+      <div class="error-item"><strong>❌ Прыгать от темы к теме</strong><br>→ Придерживайся роадмапа, доводи до конца хотя бы один курс.</div>
+      <div class="error-item"><strong>❌ Копировать код без осознания</strong><br>→ Переписывай руками, добавляй комментарии, меняй логику.</div>
+      <div class="error-item"><strong>❌ Игнорировать Git и документацию</strong><br>→ Освой git add/commit/push с первой недели.</div>
+      <div class="error-item"><strong>❌ Слишком сложные проекты сразу</strong><br>→ Начни с парсера, телеграм-бота или калькулятора.</div>
+      <div class="error-item"><strong>❌ Не читать ошибки (traceback)</strong><br>→ Учись читать стек вызовов — главный навык.</div>
     </div>
   </div>
 
-  <!-- ПОЛЕЗНЫЕ СОВЕТЫ -->
   <div class="section-card" id="tips">
-    <div class="section-title"><i class="fas fa-graduation-cap"></i><h2>💡 Полезные советы (для начинающих и продолжающих)</h2></div>
-    <div class="grid-2col">
-      <div class="info-card"><h3><i class="fas fa-seedling"></i> Новичкам</h3><ul><li>🐍 Решай 1–2 задачки в день на Codewars / CheckiO.</li><li>📘 Используй интерактивные платформы: Stepik, Hyperskill.</li><li>👥 Найди наставника или чат единомышленников.</li><li>🔄 Повторяй темы через 2 недели — кривая забывания.</li></ul></div>
-      <div class="info-card"><h3><i class="fas fa-chart-line"></i> Опытным</h3><ul><li>⚙️ Изучи асинхронность (asyncio, aiohttp).</li><li>📦 Пиши тесты (pytest) и типизацию (mypy).</li><li>🏗️ Внедряй CI/CD, Docker для своих проектов.</li><li>📖 Читай код открытых библиотек, веди технический блог.</li></ul></div>
+    <div class="section-title"><i class="fas fa-graduation-cap"></i><h2>💡 Полезные советы</h2></div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 28px;">
+      <div><h3><i class="fas fa-seedling"></i> Новичкам</h3><ul><li>🐍 Решай 1–2 задачки в день на Codewars.</li><li>📘 Интерактивные платформы: Stepik, Hyperskill.</li><li>👥 Найди чат единомышленников.</li></ul></div>
+      <div><h3><i class="fas fa-chart-line"></i> Опытным</h3><ul><li>⚙️ Изучи асинхронность (asyncio).</li><li>📦 Пиши тесты (pytest) и типизацию.</li><li>🏗️ Внедряй CI/CD, Docker.</li></ul></div>
     </div>
-<div class="img-placeholder" style="display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; margin-top: 30px;">
-  <div class="mock-img" style="flex: 1 1 320px; background:#fff; border-radius:24px; padding:20px; box-shadow:0 6px 18px rgba(0,0,0,0.04); text-align:center; max-width: 360px;">
-    <img src="./img/427886a05267cfaa48c959730173827a.jpg" alt="Менторинг" style="max-width:100%; height:auto; border-radius:12px; margin-bottom:12px; object-fit: cover;">
-    <p style="font-size:0.95rem; color:#2a4b5c; white-space: normal; word-wrap: break-word; margin:0;">Менторинг</p>
-  </div>
-</div>
   </div>
 
-  <!-- РЕКОМЕНДАЦИИ -->
   <div class="section-card" id="recommend">
     <div class="section-title"><i class="fas fa-star-of-life"></i><h2>📚 Рекомендации — лучшие ресурсы</h2></div>
     <div class="recommend-grid">
@@ -358,26 +112,12 @@
       <div class="rec-card"><i class="fab fa-youtube"></i><h3>YouTube</h3><p>Тимофей Хирьянов, selfedu, egoroff_channel.</p></div>
       <div class="rec-card"><i class="fas fa-tasks"></i><h3>Практика</h3><p>LeetCode, Codewars, Kaggle, API-проекты.</p></div>
     </div>
-    <div class="img-placeholder" style="display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; margin-top: 30px;">
-  <div class="mock-img" style="flex: 1 1 minmax(320px,45%); background:#fff; border-radius:24px; padding:20px; box-shadow:0 6px 18px rgba(0,0,0,0.04); text-align:center;" >
-    <img src="./img/bed6f5e70cac80dc7d4c374b58f24a3f.jpg" alt="Питон сообщество" style="max-width:100%; height:auto; border-radius:12px; margin-bottom:12px;" >
-    <p style="font-size:0.95rem; color:#2a4b5c;">Питон сообщество</p>
- </div>
-</div>
-
-  <div class="section-card">
-    <div class="section-title"><i class="fas fa-quote-right"></i><h2>🧠 Мышление программиста</h2></div>
-    <p style="font-size:1.05rem; margin-bottom:20px;">Самообучение — это марафон. Стабильность: 30–60 минут ежедневно дают больше, чем 8 часов раз в неделю. Не бойся ошибок, они — часть обучения. Учись гуглить и задавать точные вопросы.</p>
-<div class="img-placeholder" style="display: flex; gap: 24px; flex-wrap: wrap; justify-content:center ; margin-top :35 px ; " >
-   <div class ="mock-img" style ="flex:1 minmax (325 px ,45% ) ; background :#fff ; border-radius :24 px ; padding :18 px ; box-shadow :06 px18 px rgba (0 ,0 ,0 , .04) ; text-align :center ;" >
-      <img src ="./img/46d8c2f92aba4ba14c0a662659597a13.jpg" alt ="Consistency > intensity" style ="max-width :100% ; height :auto ; border-radius :12 px ; margin-bottom :15 px ; " >
-      <p style ="font-size : .95 rem ; color :#2a4b5c ; white-space :normal ; word-wrap :break-word ; margin :8 px auto ; max-width :95% ; ">Consistency > intensity</p>
-   </div>
-</div>
+  </div>
 </main>
 
 <footer>
-  <div class="container"><p>© ИРУНАЗУ — твой путеводитель в мире Python. Учись, развивайся и делись знаниями.</p>
+  <div class="container"><p>© ИРУНАЗУ — твой путеводитель в мире Python и не только. <a href="./index.html">Вернуться на главную</a></p></div>
 </footer>
+
 </body>
 </html>
